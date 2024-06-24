@@ -1,5 +1,5 @@
-baseurl: "/tgr"
-url: "https://kokokostya.github.io/"
+baseurl: "/"
+url: "https://plan-b-russia.github.io/"
 sitename: plan_b_russia
 
 collections:
