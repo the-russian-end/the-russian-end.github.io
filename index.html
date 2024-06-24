@@ -1,0 +1,75 @@
+---
+title: Home
+---
+
+<div class="row justify-content-center mb-4">
+  <div class="col-12 col-lg-10 col-xl-9">
+    {% assign inconclusiveCount = site.entries | where: "inconclusive", true | size %}
+    {% assign conclusiveCount = site.entries | where: "inconclusive", nil | size %}
+    <p>War in Ukraine revealed a great deal of documented self-inflicted deaths by Russian soldiers on the battlefield. As of today <b class="hl">{{ conclusiveCount }} of them</b><sup>†</sup> arrived at suicide as the best possible outcome, and were filmed committing one. Puzzling to think about and terrible to watch, this phenomena seems increasingly characteristic for Russian army, truly unmatched in this grim respect.</p>
+
+    <p>Why are they doing it? Why so many of them? Why now? While everyone can conteplate answers, the goal of this page is not to draw any conclusions but to merely document these bizzare acts in light of their public significance. We're sourcing data from <a href ="https://www.reddit.com/r/DroneCombat/wiki/list/?share_id=vl8cUhiLVs9cvBr--bfQL" class="link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2">Reddit</a>.</p>
+
+    <div class="hstack flex-wrap gap-3 small mt-4 mb-2 text-muted">
+      <ul class="list-unstyled hstack gap-3 m-0 pe-md-3">
+        <li>
+          † Conclusive:
+          <span class="fw-semibold hl">{{ conclusiveCount }}</span>
+        </li>
+        <li>
+          Inconclusive:
+          <span class="fw-semibold hl">{{ inconclusiveCount }}</span>
+        </li>
+      </ul>
+      
+      <ul class="list-unstyled hstack gap-3 m-0 pe-md-3">
+        {% assign entriesByYear = site.entries | group_by_exp: "entry", "entry.date | date: '%Y'" %}
+        {% for year in entriesByYear %}
+          <li>
+            {{ year.name }}:
+            <span class="fw-semibold hl">{{ year.size }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <ul class="list-unstyled hstack gap-3 m-0">
+        {% assign entriesByMethod = site.entries | group_by_exp: "entry", "entry.method" %}
+        {% for method in entriesByMethod %}
+          <li>
+            {% if method.name %}{{ method.name | capitalize }}{% else %}Unknown{% endif %}:
+            <span class="fw-semibold hl">{{ method.size }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 list-unstyled gy-4">
+  {% for entry in site.entries reversed %}
+    <li class="col">
+      <div class="card h-100">
+        <a href="{{ entry.url | relative_url }}" class="d-block card-img-top">
+          <img src="{{ '/assets/images/thumbnails/' | append: entry.number | append: '.jpg' | relative_url }}" class="h-100 w-100 {% if entry.nsfl %}nsfl{% endif %}">
+
+          <div class="position-absolute top-0 start-0 m-3 hstack gap-2 align-items-start">
+            <span class="badge rounded-pill text-dark bg-warning fs-6 fw-medium">#{{ entry.number }}</span>
+
+            {% if entry.inconclusive %}
+              <span class="badge rounded-pill bg-secondary fw-medium">Inconclusive</span>
+            {% endif %}
+          </div>
+
+          {% if entry.nsfl %}
+            <span class="position-absolute top-50 start-50 translate-middle badge bg-danger fs-5">NSFL</span>
+          {% endif %}
+        </a>
+
+        <div class="card-body vstack justify-content-between">
+          <h3 class="fs-6"><a href="{{ entry.url | relative_url }}" class="d-block link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2">{{ entry.caption }}</a></h3>
+          <span class="text-muted small">{{ entry.date | date: "%d %b %Y" }}</span>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

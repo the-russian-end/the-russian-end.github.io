@@ -1,0 +1,18 @@
+baseurl: "/tgr"
+url: "https://kokokostya.github.io/"
+sitename: plan_b_russia
+
+collections:
+  entries:
+    output: true
+    sort_by: number
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "_entries"
+    values:
+      layout: "entry"  

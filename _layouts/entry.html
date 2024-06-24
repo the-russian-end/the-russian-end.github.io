@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<div class="vstack align-items-center gap-3 mb-3">
+  <div class="hstack justify-content-center gap-3">
+    {% assign prevEntryNum = page.number | minus: 1 %}
+    {% assign prevEntry = site.entries | find: "number", prevEntryNum %}
+    <a {% if page.number > 1 %}href="{{ prevEntry.url | relative_url }}"{% endif %} class="icon-link arrow-left {% if page.number == 1 %}disabled{% endif %}"><span class="visually-hidden-focusable">Previous</span></a>
+    
+    <span class="badge rounded-pill bg-warning text-dark fs-5 fw-semibold">#{{ page.number }}</span>
+    
+    {% assign entriesCount = site.entries | size %}
+    {% assign nextEntryNum = page.number | plus: 1 %}
+    {% assign nextEntry = site.entries | find: "number", nextEntryNum %}
+    <a {% if page.number < entriesCount %}href="{{ nextEntry.url | relative_url }}"{% endif %} class="icon-link arrow-right {% if page.number == entriesCount %}disabled{% endif %}"><span class="visually-hidden-focusable">Next</span></a>
+  </div>
+
+  {% if page.comment %}
+    <p class="mb-0">
+      {% if page.inconclusive %}
+        <span class="d-inline-block badge rounded-pill text-bg-secondary fw-medium">Inconclusive</span>
+      {% endif %}
+      {{ page.comment }}
+    </p>
+  {% endif %}
+
+  <div class="hstack justify-content-center flex-wrap gap-3">
+    <p class="small text-muted">
+      Date: <span class="hl">{{ page.date | date: "%d %b %Y" }}</span>
+    </p>
+    {% if page.location %}
+      <p class="small text-muted">
+        Location: <span class="hl">{{ page.location }}</span>
+      </p>
+    {% endif %}
+    {% if page.timecode %}
+      <p class="small text-muted">
+        Timecode: <span class="hl">{{ page.timecode }}</span>
+      </p>
+    {% endif %}
+  </div>
+</div>
+
+{{ page.content }}
