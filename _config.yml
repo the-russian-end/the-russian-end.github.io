@@ -1,6 +1,7 @@
-baseurl: "/"
-url: "https://plan-b-russia.github.io/"
 sitename: plan_b_russia
+domain: plan-b-russia.github.io
+url: https://plan-b-russia.github.io/
+baseurl: /
 
 collections:
   entries:
