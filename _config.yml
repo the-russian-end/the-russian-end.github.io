@@ -1,7 +1,9 @@
-sitename: plan_b_russia
-domain: plan-b-russia.github.io
-url: https://plan-b-russia.github.io/
+sitename: The Russian End
+domain: the-russian-end.github.io
+url: https://the-russian-end.github.io/
 baseurl: /
+email: therussianend@gmail.com
+twitter: https://x.com/plan_b_russia
 
 collections:
   entries:
