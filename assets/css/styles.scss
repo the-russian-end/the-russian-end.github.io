@@ -1,40 +1,38 @@
 ---
 ---
 
-:root {
-  --bg: #102026;
-  --bg-10: hsl(from var(--bg) h s calc(l + 10));
-  --bg-20: hsl(from var(--bg) h s calc(l + 20));
-  --bg-30: hsl(from var(--bg) h s calc(l + 30));
-  --bg-40: hsl(from var(--bg) h s calc(l + 40));
-  --bg-50: hsl(from var(--bg) h s calc(l + 50));
-  --bg-60: hsl(from var(--bg) h s calc(l + 60));
-}
+$base-color: #102026;
+$base-color-10: lighten($base-color, 10%);
+$base-color-20: lighten($base-color, 20%);
+$base-color-30: lighten($base-color, 30%);
+$base-color-40: lighten($base-color, 40%);
+$base-color-50: lighten($base-color, 50%);
+$base-color-60: lighten($base-color, 60%);
 
 body {
-  background-color: var(--bg);
-  color: var(--bg-30);
+  background-color: $base-color;
+  color: $base-color-30;
   font-family: monospace;
 }
 
 .hl {
-  color: var(--bg-50) !important;
+  color: $base-color-50 !important;
 }
 
 .text-muted {
-  color: var(--bg-20) !important;
+  color: $base-color-20 !important;
 }
 
 .link-secondary {
-  color: var(--bg-40) !important;
+  color: $base-color-40 !important;
 
   &:hover {
-    color: var(--bg-50) !important;
+    color: $base-color-50 !important;
   }
 }
 
 .border-secondary {
-  border-color: var(--bg-20) !important;
+  border-color: $base-color-20 !important;
 }
 
 .smaller {
@@ -44,7 +42,7 @@ body {
 .icon-link {
   height: 36px;
   width: 36px;
-  background-color: var(--bg-30);
+  background-color: $base-color-30;
   mask-position: center;
   mask-repeat: no-repeat;
 
@@ -53,7 +51,7 @@ body {
   }
 
   &:not(.disabled):hover {
-    background-color: var(--bg-40);
+    background-color: $base-color-40;
   }
 }
 
@@ -70,7 +68,7 @@ body {
 }
 
 .card {
-  background-color: var(--bg-10);
+  background-color: $base-color-10;
 
   .card-img-top {
     height: 10rem;
@@ -87,7 +85,7 @@ body {
   }
 
   .text-muted {
-    color: var(--bg-30) !important;
+    color: $base-color-30 !important;
   }
 
   h3 {
