@@ -22,7 +22,7 @@ title: Home
         </li>
       </ul>
 
-      <hr class="d-none d-md-block border-bottom border-secondary flex-grow-1">
+      <hr class="d-block border-bottom border-secondary flex-grow-1">
       
       <ul class="list-unstyled hstack gap-3 m-0">
         {% assign entriesByYear = site.entries | group_by_exp: "entry", "entry.date | date: '%Y'" %}
