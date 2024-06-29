@@ -3,6 +3,7 @@ number: 61
 permalink: /61
 date: 2024-5-7
 location: 
+unit: 118th Mechanized Brigade
 source: https://www.reddit.com/r/DroneCombat/s/5RQ9GzbZmJ
 caption: Russian is struck on a walk. Appears to pull grenade from his vest. Video jump cuts to him dead with a large wound on his chest
 timecode: "0:50"

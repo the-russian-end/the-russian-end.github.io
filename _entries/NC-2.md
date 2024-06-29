@@ -3,6 +3,7 @@ number: 48
 permalink: /48
 date: 2024-3-21
 location:
+unit:
 source: https://www.reddit.com/r/UkraineWarVideoReport/s/D5YCHAU9SY
 caption: Russian soldier tries to shoot himself in head, likely wounds himself
 timecode:

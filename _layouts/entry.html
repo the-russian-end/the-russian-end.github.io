@@ -1,46 +1,56 @@
 ---
 layout: default
 ---
-<div class="vstack align-items-center gap-3 mb-3">
-  <div class="hstack justify-content-center gap-3 mb-2">
-    {% assign prevEntryNum = page.number | minus: 2 %}
-    {% assign prevEntry = site.entries[prevEntryNum] %}
-    <a {% if page.number > 1 %}href="{{ prevEntry.url | relative_url }}"{% endif %} class="icon-link arrow-left {% if page.number == 1 %}disabled{% endif %}"><span class="visually-hidden-focusable">Previous</span></a>
+<div class="row justify-content-center mb-4">
+  <div class="col-12 col-lg-8 col-xl-7">
+    <div class="vstack align-items-start gap-3 mb-3">
+      <div class="hstack justify-content-center gap-3 mb-2">
+        {% assign prevEntryNum = page.number | minus: 2 %}
+        {% assign prevEntry = site.entries[prevEntryNum] %}
+        <a {% if page.number > 1 %}href="{{ prevEntry.url | relative_url }}"{% endif %} class="icon-link arrow-left {% if page.number == 1 %}disabled{% endif %}"><span class="visually-hidden-focusable">Previous</span></a>
+        
+        <span class="badge rounded-pill bg-warning text-dark fs-5 fw-medium">#{{ page.number }}</span>
+        
+        {% assign entriesCount = site.entries | size %}
+        {% assign nextEntry = site.entries[page.number] %}
+        <a {% if page.number < entriesCount %}href="{{ nextEntry.url | relative_url }}"{% endif %} class="icon-link arrow-right {% if page.number == entriesCount %}disabled{% endif %}"><span class="visually-hidden-focusable">Next</span></a>
+      </div>
     
-    <span class="badge rounded-pill bg-warning text-dark fs-5 fw-semibold">#{{ page.number }}</span>
+      <h1 class="hl fs-5">{{ page.caption }}</h1>
     
-    {% assign entriesCount = site.entries | size %}
-    {% assign nextEntry = site.entries[page.number] %}
-    <a {% if page.number < entriesCount %}href="{{ nextEntry.url | relative_url }}"{% endif %} class="icon-link arrow-right {% if page.number == entriesCount %}disabled{% endif %}"><span class="visually-hidden-focusable">Next</span></a>
-  </div>
-
-  <div class="d-flex justify-content-center flex-wrap gap-4 tetx-muted">
-    <p class="smaller mb-0">
-      Date:
-      <span class="fs-6 fw-semibold hl">{{ page.date | date: "%d %b %Y" }}</span>
-    </p>
-    {% if page.location %}
-      <p class="smaller mb-0">
-        Location:
-        <span class="fs-6 fw-semibold hl">{{ page.location }}</span>
-      </p>
-    {% endif %}
-    {% if page.timecode %}
-      <p class="smaller mb-0">
-        Timecode:
-        <span class="fs-6 fw-semibold hl">{{ page.timecode }}</span>
-      </p>
-    {% endif %}
-  </div>
-
-  {% if page.comment %}
-    <p class="mb-2">
-      {% if page.inconclusive %}
-        <span class="d-inline-block badge rounded-pill text-bg-secondary fw-medium">Inconclusive</span>
+      <div class="d-flex flex-wrap align-items-center gap-4 tetx-muted">
+        <p class="smaller mb-0">
+          Date:
+          <span class="fs-6 fw-semibold hl">{{ page.date | date: "%d %b %Y" }}</span>
+        </p>
+        {% if page.location %}
+          <p class="smaller mb-0">
+            Location:
+            <span class="fs-6 fw-semibold hl">{{ page.location }}</span>
+          </p>
+        {% endif %}
+        {% if page.unit %}
+          <p class="smaller mb-0">
+            Filmed by:
+            <span class="fs-6 fw-semibold hl">{{ page.unit }}</span>
+          </p>
+        {% endif %}
+        {% if page.timecode %}
+          <p class="smaller mb-0">
+            Timecode:
+            <span class="fs-6 fw-semibold hl">{{ page.timecode }}</span>
+          </p>
+        {% endif %}
+        {% if page.inconclusive %}
+          <span class="d-block badge rounded-pill text-bg-secondary fw-medium">Inconclusive</span>
+        {% endif %}
+      </div>
+    
+      {% if page.comment %}
+        <p class="mb-2">{{ page.comment }}</p>
       {% endif %}
-      {{ page.comment }}
-    </p>
-  {% endif %}
+    </div>
+  </div>
 </div>
 
 {{ page.content }}

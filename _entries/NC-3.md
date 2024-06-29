@@ -3,6 +3,7 @@ number: 52
 permalink: /52
 date: 2024-4-4
 location: Avdiivka
+unit: 71st Jaeger Brigade
 source: https://www.reddit.com/r/DroneCombat/s/ap8JZqTTv2
 caption: Russian soldier blows up from his own grenade
 timecode:

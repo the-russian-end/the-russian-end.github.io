@@ -3,6 +3,7 @@ number: 73
 permalink: /73
 date: 2024-6-18
 location: 
+unit:
 source: https://www.reddit.com/r/DroneCombat/s/IyK8T8gBYk
 caption: Wounded Russian tries to shoot himself with his rifle but appears unable due to his wounds
 timecode: 

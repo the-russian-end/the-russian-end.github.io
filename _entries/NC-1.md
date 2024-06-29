@@ -3,6 +3,7 @@ number: 14
 permalink: /14
 date: 2023-10-15
 location:
+unit:
 source: https://reddit.com/r/CombatFootage/s/fJNY1NiAdD
 caption: Russian shoots his wounded fellow who may have asked him to do so, starts looting immediately
 timecode:

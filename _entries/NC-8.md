@@ -2,7 +2,8 @@
 number: 70
 permalink: /70
 date: 2024-6-8
-location: 
+location: Kharkiv oblast
+unit: Khorne Group
 source: https://www.reddit.com/r/UkraineInvasionVideos/s/P5RA7IJE4K
 caption: Russian soldier with horrible wounds fumbles with his rifle, possibly trying to aim it at his head
 timecode: 

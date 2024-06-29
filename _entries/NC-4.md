@@ -3,6 +3,7 @@ number: 58
 permalink: /58
 date: 2024-4-25
 location: 
+unit: 118th Mechanized Brigade
 source: https://www.reddit.com/r/DroneCombat/s/pZItNeOgzl
 caption: A Russian soldier waves goodbye to Ukrainian drone, then blows up
 timecode:
