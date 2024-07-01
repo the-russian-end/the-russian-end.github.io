@@ -4,7 +4,7 @@ permalink: /69
 date: 2024-6-2
 location: 
 unit: 3rd Assault Brigade
-source: https://www.reddit.com/r/DroneCombat/s/HJxQkTJouK
+source: 
 caption: FPV drone lands near Russian but doesn't explode. He grabs stick and hits it repeatedly until explodes
 timecode: 
 method: grenade

@@ -4,7 +4,7 @@ permalink: /60
 date: 2024-5-7
 location: 
 unit: 5th Assault Brigade
-source: https://www.reddit.com/r/CombatFootage/s/KUHPdb0ONV
+source: 
 caption: Russian soldier is struck by drone grenade. Looks like he is fumbling with something in his hands followed by an explosion
 timecode: "0:27"
 method: grenade
