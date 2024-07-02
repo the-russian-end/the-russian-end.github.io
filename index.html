@@ -51,7 +51,8 @@ title: Home
 </div>
 
 <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 list-unstyled gy-4">
-  {% for entry in site.entries reversed %}
+  {% assign ordered_entries = site.entries | sort: "number" | reverse %}
+  {% for entry in ordered_entries %}
     <li class="col">
       <div class="card h-100">
         <a href="{{ entry.url | relative_url }}" class="d-block card-img-top">

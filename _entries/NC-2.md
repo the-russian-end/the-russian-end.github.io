@@ -2,9 +2,9 @@
 number: 48
 permalink: /48
 date: 2024-3-21
-location:
-unit:
-source: 
+location: Kramatorsk raion, Donetsk oblast
+unit: 93rd Mechanized Brigade
+source: https://t.me/Chornyi_Voron_93/77
 caption: Russian soldier tries to shoot himself in head, likely wounds himself
 timecode:
 method: shot

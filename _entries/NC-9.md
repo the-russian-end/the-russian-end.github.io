@@ -1,10 +1,10 @@
 ---
 number: 73
 permalink: /73
-date: 2024-6-18
+date: 2024-6-17
 location: 
-unit:
-source: 
+unit: 46th Airmobile Brigade
+source: https://t.me/ukr_pics/22055
 caption: Wounded Russian tries to shoot himself with his rifle but appears unable due to his wounds
 timecode: 
 method: shot

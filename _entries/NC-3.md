@@ -2,7 +2,7 @@
 number: 52
 permalink: /52
 date: 2024-4-4
-location: Avdiivka
+location: Avdiivka, Donetsk oblast
 unit: 71st Jaeger Brigade
 source: 
 caption: Russian soldier blows up from his own grenade

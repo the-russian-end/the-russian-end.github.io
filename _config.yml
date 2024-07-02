@@ -8,7 +8,6 @@ twitter: https://x.com/TheRussianEnd
 collections:
   entries:
     output: true
-    sort_by: number
 
 defaults:
   - scope:

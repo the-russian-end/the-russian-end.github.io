@@ -2,9 +2,9 @@
 number: 61
 permalink: /61
 date: 2024-5-7
-location: 
+location: Robotyne, Zaporizhzhia oblast
 unit: 118th Mechanized Brigade
-source: 
+source: https://t.me/landforcesofukraine/17610
 caption: Russian is struck on a walk. Appears to pull grenade from his vest. Video jump cuts to him dead with a large wound on his chest
 timecode: "0:50"
 method: grenade
