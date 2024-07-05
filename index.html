@@ -59,7 +59,7 @@ title: Home
           <img src="{{ '/assets/images/thumbnails/' | append: entry.number | append: '.jpg' | relative_url }}" class="h-100 w-100 {% if entry.nsfl %}nsfl{% endif %}">
 
           <div class="position-absolute top-0 start-0 m-3 hstack gap-2 align-items-start">
-            <span class="badge rounded-pill text-dark bg-warning fs-6 fw-medium">#{{ entry.number }}</span>
+            <span class="badge rounded-pill text-dark bg-warning fs-6 fw-medium">#{{ entry.title }}</span>
 
             {% if entry.inconclusive %}
               <span class="badge rounded-pill bg-secondary fw-medium">Inconclusive</span>
