@@ -1,0 +1,11 @@
+---
+layout: home
+---
+
+{% if page.title == 'Unknown' %}
+  {% assign method_prop_value = nil %}
+{% else %}
+  {% assign method_prop_value = page.title | downcase %}
+{% endif %}
+{% assign ordered_entries = site.entries | where_exp: "entry", "entry.method == method_prop_value" | sort: "number" | reverse %}
+{% include cards.html ordered_entries=ordered_entries %}

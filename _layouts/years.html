@@ -1,0 +1,11 @@
+---
+layout: home
+---
+
+{% assign entries_by_year = site.entries | group_by_exp: "entry", "entry.date | date: '%Y'" %}
+{% for year in entries_by_year %}
+  {% if year.name == page.title %}
+    {% assign ordered_entries = year.items | sort: "number" | reverse %}
+    {% include cards.html ordered_entries=ordered_entries %}
+  {% endif %}
+{% endfor %}

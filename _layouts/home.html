@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<div class="row justify-content-center mb-4">
+  <div class="col-12 col-lg-10 col-xl-9">
+    {% assign conclusive_ount = site.entries | where_exp: "entry", "entry.inconclusive == nil" | size %}
+    <p>War in Ukraine revealed a great deal of documented self-inflicted deaths by Russian soldiers on the battlefield. As of today <b class="hl">{{ conclusive_ount }} of them</b><sup>†</sup> arrived at suicide as the best possible outcome, and were filmed committing one. Puzzling to think about and terrible to watch, this phenomena seems increasingly characteristic for Russian army, truly unmatched in this grim respect.</p>
+
+    <p>Why are they doing it? Why so many of them? Why now? While everyone can conteplate answers, the goal of this page is not to draw any conclusions but to merely document these bizzare acts in light of their public significance. We're sourcing data from social media.</p>
+
+    <div class="hstack flex-wrap gap-3 smaller mt-4 mb-2 text-muted">
+      <ul class="list-unstyled hstack gap-3 m-0">
+        {% for case in site.cases %}
+          {% assign count = site.entries | where_exp: "entry", "entry.inconclusive == case.inconclusive" | size %}
+          <li>
+            <span class="d-block {% if page.url == case.url %}hl{% endif %}">{{ case.title }}</span>
+            <a href="{{ case.url }}" class="fs-5 fw-semibold {% if page.url == case.url %}hl text-decoration-none{% else %}link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2{% endif %}">{{ count }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <hr class="d-block border-bottom border-secondary flex-grow-1">
+      
+      <ul class="list-unstyled hstack gap-3 m-0">
+        {% assign entries_by_year = site.entries | group_by_exp: "entry", "entry.date | date: '%Y'" %}
+        {% for year in site.years %}
+          {% for year_entries in entries_by_year %}
+            {% if year_entries.name == year.title %}
+              {% assign count = year_entries.items | size %}
+            {% endif %}
+          {% endfor %}
+          <li>
+            <span class="d-block {% if page.url == year.url %}hl{% endif %}">{{ year.title }}</span>
+            <a href="{{ year.url }}" class="fs-5 fw-semibold {% if page.url == year.url %}hl text-decoration-none{% else %}link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2{% endif %}">{{ count }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <hr class="d-none d-md-block border-bottom border-secondary flex-grow-1">
+
+
+      <ul class="list-unstyled hstack gap-3 m-0">
+        {% assign entries_by_method = site.entries | group_by_exp: "entry", "entry.method" %}
+        {% for method in site.methods %}
+          {% if method.title == 'Unknown' %}
+            {% assign method_prop_value = nil %}
+          {% else %}
+            {% assign method_prop_value = method.title | downcase %}
+          {% endif %}
+          {% for method_entries in entries_by_method %}
+            {% if method_entries.name == method_prop_value %}
+              {% assign count = method_entries.items | size %}
+            {% endif %}
+          {% endfor %}
+          <li>
+            <span class="d-block {% if page.url == method.url %}hl{% endif %}">{{ method.title }}</span>
+            <a href="{{ method.url }}" class="fs-5 fw-semibold {% if page.url == method.url %}hl text-decoration-none{% else %}link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2{% endif %}">{{ count }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 list-unstyled gy-4">
+  {{ content }}
+</ul>

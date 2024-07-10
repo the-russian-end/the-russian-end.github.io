@@ -1,20 +1,22 @@
 ---
 layout: default
+title: page.number
 ---
+
 <div class="row justify-content-center mb-4">
   <div class="col-12 col-lg-8 col-xl-7">
     <div class="vstack align-items-start gap-2 mb-3">
       <div class="hstack justify-content-center gap-3 mb-2">
-        {% assign prevEntryNum = page.number | minus: 1 %}
-        {% assign prevEntry = site.entries | where: "number", prevEntryNum | first %}
-        <a {% if page.number > 1 %}href="{{ prevEntry.url | relative_url }}"{% endif %} class="icon-link arrow-left {% if page.number == 1 %}disabled{% endif %}"><span class="visually-hidden-focusable">Previous</span></a>
+        {% assign prev_entry_num = page.number | minus: 1 %}
+        {% assign prev_entry = site.entries | where: "number", prev_entry_num | first %}
+        <a {% if page.number > 1 %}href="{{ prev_entry.url | relative_url }}"{% endif %} class="icon-link arrow-left {% if page.number == 1 %}disabled{% endif %}"><span class="visually-hidden-focusable">Previous</span></a>
         
         <span class="badge rounded-pill bg-warning text-dark fs-5 fw-medium">#{{ page.number }}</span>
         
-        {% assign entriesCount = site.entries | size %}
-        {% assign nextEntryNum = page.number | plus: 1 %}
-        {% assign nextEntry = site.entries | where: "number", nextEntryNum | first %}
-        <a {% if page.number < entriesCount %}href="{{ nextEntry.url | relative_url }}"{% endif %} class="icon-link arrow-right {% if page.number == entriesCount %}disabled{% endif %}"><span class="visually-hidden-focusable">Next</span></a>
+        {% assign entries_count = site.entries | size %}
+        {% assign next_entry_num = page.number | plus: 1 %}
+        {% assign next_entry = site.entries | where: "number", next_entry_num | first %}
+        <a {% if page.number < entries_count %}href="{{ next_entry.url | relative_url }}"{% endif %} class="icon-link arrow-right {% if page.number == entries_count %}disabled{% endif %}"><span class="visually-hidden-focusable">Next</span></a>
       </div>
     
       <h1 class="hl fs-5">{{ page.caption }}</h1>

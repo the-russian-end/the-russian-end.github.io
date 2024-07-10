@@ -1,0 +1,6 @@
+---
+layout: home
+---
+
+{% assign ordered_entries = site.entries | where_exp: "entry", "entry.inconclusive == page.inconclusive" | sort: "number" | reverse %}
+{% include cards.html ordered_entries=ordered_entries %}

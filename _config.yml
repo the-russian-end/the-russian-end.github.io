@@ -8,13 +8,31 @@ twitter: https://x.com/TheRussianEnd
 collections:
   entries:
     output: true
+  cases:
+    output: true
+  years:
+    output: true
+  methods:
+    output: true
 
 defaults:
   - scope:
       path: ""
     values:
-      layout: "default"
+      layout: "home"
   - scope:
       path: "_entries"
     values:
-      layout: "entry"  
+      layout: "entry"
+  - scope:
+      path: "_cases"
+    values:
+      layout: "cases"
+  - scope:
+      path: "_years"
+    values:
+      layout: "years"
+  - scope:
+      path: "_methods"
+    values:
+      layout: "methods"
