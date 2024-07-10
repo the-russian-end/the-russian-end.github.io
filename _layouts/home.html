@@ -14,7 +14,12 @@ layout: default
         {% for case in site.cases %}
           {% assign count = site.entries | where_exp: "entry", "entry.inconclusive == case.inconclusive" | size %}
           <li>
-            <span class="d-block {% if page.url == case.url %}hl{% endif %}">{{ case.title }}</span>
+            <span class="d-block {% if page.url == case.url %}hl{% endif %}">
+              {% if case.inconclusive == nil %}
+                †
+              {% endif %}
+              {{ case.title }}
+            </span>
             <a href="{{ case.url }}" class="fs-5 fw-semibold {% if page.url == case.url %}hl text-decoration-none{% else %}link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2{% endif %}">{{ count }}</a>
           </li>
         {% endfor %}
