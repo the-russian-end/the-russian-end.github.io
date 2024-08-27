@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: main
 ---
 
 {% assign ordered_entries = site.entries | where_exp: "entry", "entry.inconclusive == page.inconclusive" | sort: "number" | reverse %}

@@ -19,7 +19,7 @@ defaults:
   - scope:
       path: ""
     values:
-      layout: "home"
+      layout: "main"
   - scope:
       path: "_entries"
     values:
