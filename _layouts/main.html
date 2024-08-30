@@ -10,30 +10,7 @@ layout: default
     <p>Why are they doing it? Why so many of them? Why now? While everyone can conteplate their own answers, the goal of this page is not to draw any conclusions but to merely document these bizzare acts in light of their public significance. We're sourcing data from social media.</p>
 
     <div class="hstack flex-wrap gap-4 smaller mt-4 mb-2 text-muted">
-      <ul class="list-unstyled hstack flex-wrap w-100 gap-4 m-0">
-        {% assign entries_by_year = site.entries | group_by_exp: "entry", "entry.date | date: '%Y'" %}
-        {% for year in site.years %}
-          {% for year_entries in entries_by_year %}
-            {% if year_entries.name == year.title %}
-              {% assign that_year_entries = year_entries %}
-            {% endif %}
-          {% endfor %}
-          <li>
-            <span class="d-block {% if page.url == year.url %}hl{% endif %}">{{ year.title }}</span>
-            <a href="{{ year.url }}" class="fs-5 {% if page.url == year.url %}fw-semibold hl text-decoration-none{% else %}link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2{% endif %}">{{ that_year_entries.items | size  }}</a>
-            
-            <ul class="list-unstyled hstack gap-3 m-0 mt-1">
-              {% assign entries_by_month = that_year_entries.items | group_by_exp: "entry", "entry.date | date: '%b'" %}
-              {% for month_entries in entries_by_month %}
-                  <li>
-                    <span class="d-block {% if page.url == year.url %}hl{% endif %}">{{ month_entries.name }}</span>
-                    <span class="fs-6 fw-semibold {% if page.url == year.url %}hl{% endif %}">{{ month_entries.items | size }}</span>
-                  </li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% endfor %}
-      </ul>
+      
       
       <ul class="list-unstyled hstack gap-3 m-0 me-4">
         {% for case in site.cases %}
@@ -66,6 +43,31 @@ layout: default
           <li>
             <span class="d-block {% if page.url == method.url %}hl{% endif %}">{{ method.title }}</span>
             <a href="{{ method.url }}" class="fs-5 {% if page.url == method.url %}fw-semibold hl text-decoration-none{% else %}link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2{% endif %}">{{ count }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <ul class="list-unstyled hstack flex-wrap w-100 gap-4 m-0">
+        {% assign entries_by_year = site.entries | group_by_exp: "entry", "entry.date | date: '%Y'" %}
+        {% for year in site.years %}
+          {% for year_entries in entries_by_year %}
+            {% if year_entries.name == year.title %}
+              {% assign that_year_entries = year_entries %}
+            {% endif %}
+          {% endfor %}
+          <li>
+            <span class="d-block {% if page.url == year.url %}hl{% endif %}">{{ year.title }}</span>
+            <a href="{{ year.url }}" class="fs-5 {% if page.url == year.url %}fw-semibold hl text-decoration-none{% else %}link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2{% endif %}">{{ that_year_entries.items | size  }}</a>
+            
+            <ul class="list-unstyled hstack gap-3 m-0 mt-1">
+              {% assign entries_by_month = that_year_entries.items | group_by_exp: "entry", "entry.date | date: '%b'" %}
+              {% for month_entries in entries_by_month %}
+                  <li>
+                    <span class="d-block {% if page.url == year.url %}hl{% endif %}">{{ month_entries.name }}</span>
+                    <span class="fs-6 fw-semibold {% if page.url == year.url %}hl{% endif %}">{{ month_entries.items | size }}</span>
+                  </li>
+              {% endfor %}
+            </ul>
           </li>
         {% endfor %}
       </ul>
