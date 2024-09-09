@@ -21,40 +21,47 @@ title: page.number
     
       <h1 class="hl fs-5">{{ page.caption }}</h1>
     
-      <div class="d-flex flex-wrap align-items-center gap-3 tetx-muted small">
-        <p class="mb-0">
-          Date:
-          <span class="fw-semibold hl">{{ page.date | date: "%d %b %Y" }}</span>
-        </p>
-        {% if page.location %}
-          <p class="mb-0">
-            Location:
-            <span class="fw-semibold hl">{{ page.location }}</span>
+      <div class="text-muted small">
+        {% if page.inconclusive or page.comment %}
+          <p class="mb-2"></p>
+            {% if page.inconclusive %}
+              <span class="d-inline-block align-text-bottom badge rounded-pill text-bg-secondary fw-medium">Inconclusive</span>
+            {% endif %}
+            {% if page.comment %}
+              {{ page.comment }}
+            {% endif %}
           </p>
         {% endif %}
+        <div class="hstack gap-3">
+          <p>
+            Date:
+            <span class="fw-semibold hl">{{ page.date | date: "%d %b %Y" }}</span>
+          </p>
+          {% if page.location %}
+            <p>
+              Location:
+              <span class="fw-semibold hl">{{ page.location }}</span>
+            </p>
+          {% endif %}
+          </div>
         {% if page.unit %}
-          <p class="mb-0">
+          <p>
             Filmed by:
             <span class="fw-semibold hl">{{ page.unit }}</span>
           </p>
         {% endif %}
-        {% if page.timecode %}
-          <p class="mb-0">
-            Timecode:
-            <span class="fw-semibold hl">{{ page.timecode }}</span>
+        {% if page.source or page.timecode %}
+          <p class="hstack gap-3">
+            {% if page.source %}
+              <a href="{{ page.source }}" target="_blank" class="link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2">Source</a>
+            {% endif %}
+            {% if page.timecode %}
+              Timecode:
+              <span class="fw-semibold hl">{{ page.timecode }}</span>
+            {% endif %}
           </p>
         {% endif %}
-        {% if page.source %}
-          <a href="{{ page.source }}" target="_blank" class="link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2">Source</a>
-        {% endif %}
-        {% if page.inconclusive %}
-          <span class="d-block badge rounded-pill text-bg-secondary fw-medium">Inconclusive</span>
-        {% endif %}
       </div>
-    
-      {% if page.comment %}
-        <p class="mb-2">{{ page.comment }}</p>
-      {% endif %}
     </div>
   </div>
 </div>
