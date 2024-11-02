@@ -32,10 +32,10 @@ title: page.number
             {% endif %}
           </p>
         {% endif %}
-        <div class="hstack gap-3">
+        <div class="hstack gap-3 align-items-start">
           <p>
             Date:
-            <span class="fw-semibold hl">{{ page.date | date: "%d %b %Y" }}</span>
+            <span class="fw-semibold hl text-nowrap">{{ page.date | date: "%d %b %Y" }}</span>
           </p>
           {% if page.location %}
             <p>
@@ -43,7 +43,7 @@ title: page.number
               <span class="fw-semibold hl">{{ page.location }}</span>
             </p>
           {% endif %}
-          </div>
+        </div>
         {% if page.unit %}
           <p>
             Filmed by:
@@ -51,15 +51,17 @@ title: page.number
           </p>
         {% endif %}
         {% if page.source or page.timecode %}
-          <p class="hstack gap-3">
+          <div class="hstack gap-3">
             {% if page.source %}
               <a href="{{ page.source }}" target="_blank" class="link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2">Source</a>
             {% endif %}
             {% if page.timecode %}
-              Timecode:
-              <span class="fw-semibold hl">{{ page.timecode }}</span>
+              <p class="mb-0">
+                Timecode:
+                <span class="fw-semibold hl">{{ page.timecode }}</span>
+              </p>
             {% endif %}
-          </p>
+          </div>
         {% endif %}
       </div>
     </div>
