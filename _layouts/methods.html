@@ -4,11 +4,12 @@ layout: main
 
 {% if page.title == 'Other' %}
   {% assign entries_by_method = "" | split:"" %}  
-  {% for entry in site.entries | sort: "number" | reverse %}
+  {% for entry in site.entries %}
     {% if entry.method != 'shot' and entry.method != 'grenade' %}
       {% assign entries_by_method = entries_by_method | push: entry %}
     {% endif %}
   {% endfor %}
+  {% assign entries_by_method = entries_by_method | sort: "number" | reverse %}  
 {% else %}
   {% assign method_prop_value = page.title | downcase %}
   {% assign entries_by_method = site.entries | where_exp: "entry", "entry.method == method_prop_value" | sort: "number" | reverse %}
