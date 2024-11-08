@@ -2,10 +2,15 @@
 layout: main
 ---
 
-{% if page.title == 'Unknown' %}
-  {% assign method_prop_value = nil %}
+{% if page.title == 'Other' %}
+  {% assign entries_by_method = "" | split:"" %}  
+  {% for entry in site.entries | sort: "number" | reverse %}
+    {% if entry.method != 'shot' and entry.method != 'grenade' %}
+      {% assign entries_by_method = entries_by_method | push: entry %}
+    {% endif %}
+  {% endfor %}
 {% else %}
   {% assign method_prop_value = page.title | downcase %}
+  {% assign entries_by_method = site.entries | where_exp: "entry", "entry.method == method_prop_value" | sort: "number" | reverse %}
 {% endif %}
-{% assign ordered_entries = site.entries | where_exp: "entry", "entry.method == method_prop_value" | sort: "number" | reverse %}
-{% include cards.html ordered_entries=ordered_entries %}
+{% include cards.html ordered_entries=entries_by_method %}

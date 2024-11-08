@@ -28,18 +28,19 @@ layout: default
       </ul>
 
       <ul class="list-unstyled hstack gap-3 m-0">
-        {% assign entries_by_method = site.entries | group_by_exp: "entry", "entry.method" %}
         {% for method in site.methods %}
-          {% if method.title == 'Unknown' %}
-            {% assign method_prop_value = nil %}
+          {% if method.title == 'Other' %}
+            {% assign entries_by_method = "" | split:"" %}  
+            {% for entry in site.entries | sort: "number" | reverse %}
+              {% if entry.method != 'shot' and entry.method != 'grenade' %}
+                {% assign entries_by_method = entries_by_method | push: entry %}
+              {% endif %}
+            {% endfor %}
           {% else %}
             {% assign method_prop_value = method.title | downcase %}
+            {% assign entries_by_method = site.entries | where_exp: "entry", "entry.method == method_prop_value" | sort: "number" | reverse %}
           {% endif %}
-          {% for method_entries in entries_by_method %}
-            {% if method_entries.name == method_prop_value %}
-              {% assign count = method_entries.items | size %}
-            {% endif %}
-          {% endfor %}
+          {% assign count = entries_by_method | size %}
           <li>
             <span class="d-block {% if page.url == method.url %}hl{% endif %}">{{ method.title }}</span>
             <a href="{{ method.url }}" class="fs-5 {% if page.url == method.url %}fw-semibold hl text-decoration-none{% else %}link-light link-underline-opacity-25 link-underline-opacity-50-hover link-offset-2{% endif %}">{{ count }}</a>
