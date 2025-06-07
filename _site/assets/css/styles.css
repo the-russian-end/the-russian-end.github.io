@@ -24,7 +24,7 @@ body { background-color: #102026; color: #3d7b92; font-family: monospace; }
 .card { background-color: #1f3e4a; }
 .card .card-img-top { height: 10rem; overflow: hidden; position: relative; }
 .card .card-img-top img { object-fit: cover; }
-.card .card-img-top img.nsfl { filter: blur(5px); }
+.card .card-img-top img.nsfl { filter: blur(2px); }
 .card .text-muted { color: #3d7b92 !important; }
 .card h3 { line-height: 140%; }
 .card:hover .bg-warning { background-color: #fff !important; }
